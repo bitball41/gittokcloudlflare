@@ -1,0 +1,12 @@
+{
+  "name": "gittokcloudlflare",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.20.0"
+  }
+}
