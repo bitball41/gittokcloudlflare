@@ -7,9 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "bun run build && wrangler deploy",
-    "cf:dev": "bun run build && wrangler dev"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.3",

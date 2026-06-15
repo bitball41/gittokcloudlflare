@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/wrangler.json",
+  "name": "gittokcloudlflare",
+  "compatibility_date": "2025-06-15",
+  "build": {
+    "command": "cd frontend && bun install && bun run build"
+  },
+  "assets": {
+    "directory": "./frontend/dist",
+    "not_found_handling": "single-page-application"
+  }
+}

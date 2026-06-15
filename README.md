@@ -38,23 +38,25 @@ No backend required!
 
 ## Deploy to Cloudflare Workers
 
-The app is a static SPA served via [Cloudflare Workers static assets](https://developers.cloudflare.com/workers/static-assets/). Config lives in `frontend/wrangler.jsonc`.
+The app is a static SPA served via [Cloudflare Workers static assets](https://developers.cloudflare.com/workers/static-assets/). The deploy config lives in `wrangler.jsonc` at the repo root. Its `build.command` installs deps and runs `vite build` in `frontend/`, then the `frontend/dist/` output is uploaded as static assets with SPA fallback routing.
 
-Run the commands below in the `/frontend` folder.
+### Git integration (automatic)
+
+If the repo is connected to a Cloudflare Workers project via [Git integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/), every push builds and deploys automatically using the default deploy command (`npx wrangler deploy`) — no extra build settings required, since the root `wrangler.jsonc` drives the build.
+
+### Manual deploy (from the repo root)
 
 1. Authenticate Wrangler with your Cloudflare account (one-time):
 
 ```bash
-bunx wrangler login
+npx wrangler login
 ```
 
 2. Build and deploy:
 
 ```bash
-bun run deploy
+npx wrangler deploy
 ```
-
-This runs `vite build` and then `wrangler deploy`, uploading the `dist/` output. To preview the production build locally on the Workers runtime, run `bun run cf:dev`.
 
 > CI / non-interactive deploys: set `CLOUDFLARE_API_TOKEN` (and `CLOUDFLARE_ACCOUNT_ID`) env vars instead of `wrangler login`.
 
